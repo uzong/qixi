@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七夕·中国传统情人节</title>
+    <meta name="description" content="七夕传统文化展示网站 - 牛郎织女的浪漫传说与中华文化的深厚底蕴">
+    <meta name="keywords" content="七夕,传统文化,牛郎织女,中国节日,诗词,习俗,祈愿">
+    <meta name="author" content="七夕传统文化网站">
+    <meta property="og:title" content="七夕·中国传统情人节">
+    <meta property="og:description" content="探索中华传统七夕文化，感受牛郎织女的浪漫传说">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="day-mode">
+    <!-- 头部导航区域 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-text">七夕</span>
+                    <span class="logo-subtitle">传统文化</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">首页</a></li>
+                    <li><a href="#story" class="nav-link">七夕故事</a></li>
+                    <li><a href="#poetry" class="nav-link">诗词鉴赏</a></li>
+                    <li><a href="#customs" class="nav-link">传统习俗</a></li>
+                    <li><a href="#wishes" class="nav-link">祈愿祝福</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="切换日夜模式">
+                        <span class="sun-icon">☀️</span>
+                        <span class="moon-icon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主视觉区域 -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="stars-layer"></div>
+            <div class="magpie-bridge"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-main">七夕</span>
+                    <span class="title-sub">中国传统情人节</span>
+                </h1>
+                <p class="hero-description">
+                    银河之上，鹊桥相会<br>
+                    千年传说，诉说着最美好的爱情与信念
+                </p>
+                <div class="countdown-container">
+                    <h3>距离七夕还有</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="time-unit">
+                            <span class="number" id="days">0</span>
+                            <span class="label">天</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="number" id="hours">0</span>
+                            <span class="label">时</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="number" id="minutes">0</span>
+                            <span class="label">分</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="number" id="seconds">0</span>
+                            <span class="label">秒</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="couple-illustration">
+                    <div class="weaver-girl"></div>
+                    <div class="cowherd-boy"></div>
+                    <div class="floating-magpies"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 七夕故事板块 -->
+    <section id="story" class="story-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">七夕传说</h2>
+                <p class="section-subtitle">牛郎织女的千古传说</p>
+            </div>
+            
+            <div class="story-timeline">
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🌟</div>
+                        <h3>天上织女</h3>
+                        <p>织女是天帝的孙女，她心灵手巧，能织出彩霞满天的云锦。每天她都在天河边辛勤地织着美丽的云彩。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🐂</div>
+                        <h3>人间牛郎</h3>
+                        <p>牛郎是一个勤劳善良的青年，与老牛相依为命。老牛告诉他，天上的织女下凡洗澡的秘密。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">💕</div>
+                        <h3>相遇相爱</h3>
+                        <p>牛郎与织女在银河边相遇，两人一见钟情，结为夫妻，过着幸福美满的生活，还生下了一双儿女。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">⛈️</div>
+                        <h3>天帝震怒</h3>
+                        <p>天帝发现织女私自下凡结婚，大怒之下派天兵天将捉回织女，用银河将牛郎织女分隔两地。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🐦</div>
+                        <h3>鹊桥相会</h3>
+                        <p>天下的喜鹊被他们的真情感动，每年七月初七都会飞到银河上搭成鹊桥，让牛郎织女相会。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 诗词鉴赏板块 -->
+    <section id="poetry" class="poetry-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">诗词鉴赏</h2>
+                <p class="section-subtitle">历代文人笔下的七夕情怀</p>
+            </div>
+            
+            <div class="poetry-grid">
+                <div class="poetry-card featured fade-in-up">
+                    <div class="poetry-header">
+                        <h3 class="poetry-title">鹊桥仙</h3>
+                        <p class="poetry-author">宋 · 秦观</p>
+                    </div>
+                    <div class="poetry-content">
+                        <p class="poetry-text">
+                            纤云弄巧，飞星传恨，<br>
+                            银汉迢迢暗度。<br>
+                            金风玉露一相逢，<br>
+                            便胜却人间无数。<br><br>
+                            柔情似水，佳期如梦，<br>
+                            忍顾鹊桥归路。<br>
+                            两情若是久长时，<br>
+                            又岂在朝朝暮暮。
+                        </p>
+                    </div>
+                    <div class="poetry-appreciation">
+                        <p>这首词堪称咏七夕的千古绝唱，"两情若是久长时，又岂在朝朝暮暮"道出了爱情的真谛。</p>
+                    </div>
+                </div>
+                
+                <div class="poetry-card fade-in-up">
+                    <div class="poetry-header">
+                        <h3 class="poetry-title">秋夕</h3>
+                        <p class="poetry-author">唐 · 杜牧</p>
+                    </div>
+                    <div class="poetry-content">
+                        <p class="poetry-text">
+                            银烛秋光冷画屏，<br>
+                            轻罗小扇扑流萤。<br>
+                            天阶夜色凉如水，<br>
+                            卧看牵牛织女星。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="poetry-card fade-in-up">
+                    <div class="poetry-header">
+                        <h3 class="poetry-title">迢迢牵牛星</h3>
+                        <p class="poetry-author">汉 · 佚名</p>
+                    </div>
+                    <div class="poetry-content">
+                        <p class="poetry-text">
+                            迢迢牵牛星，皎皎河汉女。<br>
+                            纤纤擢素手，札札弄机杼。<br>
+                            终日不成章，泣涕零如雨。<br>
+                            河汉清且浅，相去复几许？<br>
+                            盈盈一水间，脉脉不得语。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 传统习俗板块 -->
+    <section id="customs" class="customs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">传统习俗</h2>
+                <p class="section-subtitle">七夕节的传统民俗活动</p>
+            </div>
+            
+            <div class="customs-grid">
+                <div class="custom-card fade-in-up">
+                    <div class="custom-icon">🧵</div>
+                    <h3 class="custom-title">穿针乞巧</h3>
+                    <p class="custom-description">
+                        少女们在七月初七晚上，向织女星祈求智慧和巧艺，
+                        在月光下穿针引线，比赛手艺的高低。
+                    </p>
+                </div>
+                
+                <div class="custom-card fade-in-up">
+                    <div class="custom-icon">🕷️</div>
+                    <h3 class="custom-title">喜蛛应巧</h3>
+                    <p class="custom-description">
+                        在七夕夜晚，将小蜘蛛放在盒子里，
+                        次日早晨观察蛛网的疏密来判断是否得到了巧艺。
+                    </p>
+                </div>
+                
+                <div class="custom-card fade-in-up">
+                    <div class="custom-icon">🪡</div>
+                    <h3 class="custom-title">投针验巧</h3>
+                    <p class="custom-description">
+                        将针投入水中，看水底针影的形状，
+                        如果针影形如花朵、云彩等，就是得了巧艺。
+                    </p>
+                </div>
+                
+                <div class="custom-card fade-in-up">
+                    <div class="custom-icon">🌸</div>
+                    <h3 class="custom-title">种生求子</h3>
+                    <p class="custom-description">
+                        在七夕前几天，用豌豆、小豆等在器皿中培植幼苗，
+                        称为"生"，祈求多子多福。
+                    </p>
+                </div>
+                
+                <div class="custom-card fade-in-up">
+                    <div class="custom-icon">💫</div>
+                    <h3 class="custom-title">拜织女</h3>
+                    <p class="custom-description">
+                        少女们焚香礼拜，祈求织女能传授她们聪慧的心灵
+                        和灵巧的双手，更祈求爱情婚姻的姻缘巧配。
+                    </p>
+                </div>
+                
+                <div class="custom-card fade-in-up">
+                    <div class="custom-icon">🥟</div>
+                    <h3 class="custom-title">吃巧食</h3>
+                    <p class="custom-description">
+                        七夕节要吃巧果，用面粉加糖制成各种小型物品，
+                        寓意心灵手巧，生活甜蜜美满。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 祈愿祝福板块 -->
+    <section id="wishes" class="wishes-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">祈愿祝福</h2>
+                <p class="section-subtitle">向织女星许下你的心愿</p>
+            </div>
+            
+            <div class="wishes-container">
+                <div class="wish-form-container fade-in-up">
+                    <form class="wish-form" id="wishForm">
+                        <div class="form-group">
+                            <label for="wishName">姓名 (可匿名)</label>
+                            <input type="text" id="wishName" placeholder="输入你的姓名或昵称">
+                        </div>
+                        <div class="form-group">
+                            <label for="wishContent">许愿内容</label>
+                            <textarea id="wishContent" placeholder="向织女星许下你的心愿..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="wish-submit-btn">
+                            <span>许愿</span>
+                            <div class="btn-sparkle"></div>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="wishes-wall">
+                    <h3 class="wall-title">祈愿墙</h3>
+                    <div class="wishes-list" id="wishesList">
+                        <!-- 动态生成的祈愿内容 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚区域 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>七夕传统文化</h4>
+                    <p>传承千年文化，弘扬传统之美</p>
+                </div>
+                <div class="footer-section">
+                    <h4>文化价值</h4>
+                    <ul>
+                        <li>爱情忠贞</li>
+                        <li>勤劳智慧</li>
+                        <li>美好祝愿</li>
+                        <li>家庭和睦</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>节日意义</h4>
+                    <ul>
+                        <li>中华传统节日</li>
+                        <li>非物质文化遗产</li>
+                        <li>民俗文化传承</li>
+                        <li>情感文化表达</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-decorations">
+                    <div class="cloud-pattern"></div>
+                    <div class="traditional-pattern"></div>
+                </div>
+                <p class="copyright">
+                    &copy; 2024 七夕传统文化网站 · 致敬传统，拥抱未来
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1145 @@
+/* 七夕传统文化网站样式表 */
+
+/* ===== 基础样式重置 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== CSS变量定义 - 七夕传统色彩 ===== */
+:root {
+    /* 七夕传统色彩 */
+    --color-crimson: #DC143C;        /* 绛红 */
+    --color-magpie-blue: #4A6FA5;    /* 鹊羽蓝 */
+    --color-golden-magpie: #DAA520;   /* 金鹊黄 */
+    --color-jade-white: #F8F8FF;     /* 玉白 */
+    --color-ink-black: #2C2C2C;      /* 墨黑 */
+    --color-light-gold: #FFF8DC;     /* 浅金 */
+    --color-chinese-red: #CD212A;    /* 中国红 */
+    --color-gold-accent: #FFD700;    /* 金色点缀 */
+    
+    /* 渐变色彩 */
+    --gradient-night-sky: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --gradient-day-sky: linear-gradient(135deg, #87CEEB 0%, #98D8E8 50%, #B0E0E6 100%);
+    --gradient-sunset: linear-gradient(45deg, var(--color-crimson) 0%, var(--color-golden-magpie) 100%);
+    
+    /* 字体 */
+    --font-chinese: 'Noto Serif SC', serif;
+    --font-modern: 'Inter', sans-serif;
+    
+    /* 间距 */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+    
+    /* 阴影 */
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.1);
+    --shadow-medium: 0 8px 30px rgba(0,0,0,0.15);
+    --shadow-strong: 0 12px 40px rgba(0,0,0,0.2);
+    
+    /* 动画时间 */
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.3s ease-out;
+    --transition-slow: 0.6s ease-in-out;
+}
+
+/* ===== 日夜模式变量 ===== */
+.day-mode {
+    --bg-primary: var(--color-jade-white);
+    --bg-secondary: var(--color-light-gold);
+    --text-primary: var(--color-ink-black);
+    --text-secondary: #555555;
+    --text-accent: var(--color-crimson);
+    --nav-bg: rgba(248, 248, 255, 0.95);
+    --card-bg: #ffffff;
+    --border-color: #e6e6e6;
+}
+
+.night-mode {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: var(--color-jade-white);
+    --text-secondary: #cccccc;
+    --text-accent: var(--color-golden-magpie);
+    --nav-bg: rgba(26, 26, 46, 0.95);
+    --card-bg: #2a2a4a;
+    --border-color: #444464;
+}
+
+/* ===== 基础排版 ===== */
+body {
+    font-family: var(--font-chinese);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: all var(--transition-smooth);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===== 导航栏样式 ===== */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar {
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    transition: all var(--transition-smooth);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-accent);
+    font-family: var(--font-chinese);
+}
+
+.logo-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-family: var(--font-modern);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 400;
+    position: relative;
+    transition: all var(--transition-fast);
+    padding: var(--spacing-xs) 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-accent);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-crimson), var(--color-golden-magpie));
+    transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-xs);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: all var(--transition-smooth);
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    border-color: var(--text-accent);
+    transform: scale(1.05);
+}
+
+.night-mode .sun-icon {
+    display: none;
+}
+
+.day-mode .moon-icon {
+    display: none;
+}
+
+/* ===== 主视觉区域 ===== */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--gradient-day-sky);
+    overflow: hidden;
+}
+
+.night-mode .hero {
+    background: var(--gradient-night-sky);
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.stars-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, white, transparent),
+        radial-gradient(2px 2px at 40px 70px, white, transparent),
+        radial-gradient(1px 1px at 90px 40px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(2px 2px at 160px 30px, white, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: twinkle 3s ease-in-out infinite alternate;
+    opacity: 0;
+}
+
+.night-mode .stars-layer {
+    opacity: 0.6;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: left;
+}
+
+.hero-title {
+    margin-bottom: var(--spacing-md);
+}
+
+.title-main {
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-accent);
+    margin-bottom: var(--spacing-xs);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.title-sub {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-family: var(--font-modern);
+    font-weight: 300;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+/* ===== 倒计时组件 ===== */
+.countdown-container {
+    margin-top: var(--spacing-lg);
+}
+
+.countdown-container h3 {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.time-unit {
+    text-align: center;
+    background: var(--card-bg);
+    padding: var(--spacing-sm);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+    min-width: 80px;
+    transition: all var(--transition-smooth);
+}
+
+.time-unit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.time-unit .number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-accent);
+    font-family: var(--font-modern);
+}
+
+.time-unit .label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ===== 章节标题样式 ===== */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-accent);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-sunset);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-family: var(--font-modern);
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .title-main {
+        font-size: 3rem;
+    }
+    
+    .countdown {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+    
+    .time-unit {
+        min-width: 60px;
+        padding: var(--spacing-xs);
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* ===== 故事时间轴样式 ===== */
+.story-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-secondary);
+}
+
+.story-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.story-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--gradient-sunset);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    width: 100%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: 55%;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 55%;
+    margin-right: 0;
+    text-align: left;
+}
+
+.timeline-content {
+    background: var(--card-bg);
+    padding: var(--spacing-md);
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    transition: all var(--transition-smooth);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.timeline-content h3 {
+    color: var(--text-accent);
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--card-bg);
+    border: 3px solid var(--text-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+/* ===== 诗词卡片样式 ===== */
+.poetry-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+}
+
+.poetry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.poetry-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-smooth);
+    border: 1px solid var(--border-color);
+}
+
+.poetry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+}
+
+.poetry-card.featured {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-secondary) 100%);
+}
+
+.poetry-header {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.poetry-title {
+    color: var(--text-accent);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.poetry-author {
+    color: var(--text-secondary);
+    font-family: var(--font-modern);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.poetry-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-chinese);
+}
+
+.poetry-appreciation {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 10px;
+    border-left: 4px solid var(--text-accent);
+}
+
+.poetry-appreciation p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* ===== 传统习俗网格样式 ===== */
+.customs-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-secondary);
+}
+
+.customs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.custom-card {
+    background: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: all var(--transition-smooth);
+    border: 1px solid var(--border-color);
+}
+
+.custom-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+}
+
+.custom-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.custom-title {
+    color: var(--text-accent);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.4rem;
+}
+
+.custom-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== 祈愿祝福区域样式 ===== */
+.wishes-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+}
+
+.wishes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.wish-form-container {
+    background: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+}
+
+.wish-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--spacing-sm);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 0 3px rgba(220, 20, 60, 0.1);
+}
+
+.wish-submit-btn {
+    background: var(--gradient-sunset);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-smooth);
+}
+
+.wish-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.wishes-wall {
+    background: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: 20px;
+    box-shadow: var(--shadow-soft);
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.wall-title {
+    color: var(--text-accent);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.wish-item {
+    background: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 10px;
+    margin-bottom: var(--spacing-sm);
+    border-left: 4px solid var(--text-accent);
+}
+
+.wish-author {
+    font-weight: 600;
+    color: var(--text-accent);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.wish-content {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.wish-time {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: right;
+    margin-top: var(--spacing-xs);
+}
+
+/* ===== 页脚样式 ===== */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-section h4 {
+    color: var(--text-accent);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-secondary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.copyright {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ===== 动画类 ===== */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--transition-slow);
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 主视觉区域动画 */
+.hero-illustration {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+.couple-illustration {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.weaver-girl,
+.cowherd-boy {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: var(--gradient-sunset);
+    box-shadow: var(--shadow-soft);
+    animation: float 3s ease-in-out infinite;
+}
+
+.weaver-girl {
+    top: 50px;
+    left: 50px;
+    background: linear-gradient(45deg, var(--color-magpie-blue), var(--color-golden-magpie));
+    animation-delay: 0s;
+}
+
+.weaver-girl::before {
+    content: '👩‍🎨';
+}
+
+.cowherd-boy {
+    bottom: 50px;
+    right: 50px;
+    background: linear-gradient(45deg, var(--color-crimson), var(--color-golden-magpie));
+    animation-delay: 1.5s;
+}
+
+.cowherd-boy::before {
+    content: '👨‍🌾';
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating-magpies {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 2px;
+    background: var(--gradient-sunset);
+    border-radius: 1px;
+}
+
+.floating-magpies::before {
+    content: '🛫🛫🛫';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.2rem;
+    animation: magpie-fly 2s ease-in-out infinite;
+}
+
+@keyframes magpie-fly {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+}
+
+/* 鼠标悬停动效 */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: left var(--transition-smooth);
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.custom-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(220,20,60,0.1) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform var(--transition-smooth);
+}
+
+.custom-card:hover::before {
+    transform: scale(1);
+}
+
+.poetry-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.poetry-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(218,165,32,0.05), rgba(76,111,165,0.05));
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.poetry-card:hover::after {
+    opacity: 1;
+}
+
+/* 按钮动效 */
+.wish-submit-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.wish-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.wish-submit-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-sparkle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.btn-sparkle::before,
+.btn-sparkle::after {
+    content: '✨';
+    position: absolute;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.btn-sparkle::before {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.btn-sparkle::after {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 0.75s;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 滚动条美化 */
+.wishes-wall::-webkit-scrollbar {
+    width: 8px;
+}
+
+.wishes-wall::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.wishes-wall::-webkit-scrollbar-thumb {
+    background: var(--text-accent);
+    border-radius: 4px;
+}
+
+.wishes-wall::-webkit-scrollbar-thumb:hover {
+    background: var(--color-crimson);
+}
+
+/* 加载动画 */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* 粒子效果 */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: particle-float 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes particle-float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+/* 文字渐现动效 */
+.hero-title .title-main {
+    animation: title-appear 1s ease-out 0.5s both;
+}
+
+.hero-title .title-sub {
+    animation: title-appear 1s ease-out 1s both;
+}
+
+.hero-description {
+    animation: fade-in 1s ease-out 1.5s both;
+}
+
+@keyframes title-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 特殊节日效果 */
+.celebration-mode .hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.celebration-mode .hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255,215,0,0.1) 10px,
+        rgba(255,215,0,0.1) 20px
+    );
+    animation: celebration-sweep 2s ease-in-out infinite;
+}
+
+@keyframes celebration-sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== 移动端响应式优化 ===== */
+@media (max-width: 768px) {
+    .story-timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 50px;
+        margin-right: 0;
+        text-align: left;
+    }
+    
+    .timeline-icon {
+        left: 20px;
+        transform: translateX(-50%);
+    }
+    
+    .poetry-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .customs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wishes-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
